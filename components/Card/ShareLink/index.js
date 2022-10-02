@@ -47,8 +47,8 @@ export default function ShareLinkCard() {
   return (
     <>
       <div className="min-w-full rounded-lg bg-white-100 shadow-xl dark:bg-black-200">
-        <div className="flex min-w-full">
-          <div className="flex min-w-full flex-col items-start justify-between px-6 py-5 lg:flex-row lg:items-center">
+        <div className="flex min-w-full ">
+          <div className="flex min-w-full flex-col items-center justify-between px-6 py-5 lg:flex-row lg:items-center">
             <div className="flex-col">
               <p className="text-base font-medium leading-none text-black-200 dark:text-gray-100">
                 &#x1F493; Aprenda com seus amigos!
@@ -59,7 +59,7 @@ export default function ShareLinkCard() {
               </p>
             </div>
 
-            <div className="mt-4 flex flex-col items-center">
+            <div className="mt-4 flex flex-col items-center ">
               <Image src="/assets/img/twitter-logo.svg" width="40" height="40" />
               <a
                 className="twitter-share-button text-black-100 dark:text-white-100"
