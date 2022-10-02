@@ -14,7 +14,7 @@ export default function Tabs({ course, isLessonPage, lessonsSubmitted, cohort })
 
   return (
     <div className="flex flex-col rounded-lg bg-white-100 p-4 shadow-xl dark:bg-black-200">
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between maxsm:flex-col maxsm:text-center">
         {Object.keys(getCourse?.sections)
           .sort()
           .map((section) => {
@@ -22,7 +22,7 @@ export default function Tabs({ course, isLessonPage, lessonsSubmitted, cohort })
               <div className={'flex justify-between'} key={section}>
                 {isLessonPage ? (
                   <div
-                    className={`item flex-grow rounded px-4 py-2 font-bold text-black-100 shadow-lg hover:no-underline dark:text-white-100 ${colorTab(
+                    className={`item flex-grow rounded px-4 py-2 font-bold text-black-100 hover:no-underline dark:text-white-100 shadow-lg ${colorTab(
                       checkSections(course, lessonsSubmitted, section, user?.uid, cohort)
                         .isSectionCompleted,
                       checkSections(course, lessonsSubmitted, section, user?.uid, cohort).currentSection
@@ -34,7 +34,7 @@ export default function Tabs({ course, isLessonPage, lessonsSubmitted, cohort })
                   <a
                     href={`#${!isLessonPage ? section : ''}`}
                     onClick={() => toggle(section)}
-                    className={`item flex-grow rounded px-4 py-2 font-bold text-black-100 shadow-lg hover:no-underline dark:text-white-100 ${colorTab(
+                    className={`item flex-grow rounded px-4 py-2 font-bold text-black-100 hover:no-underline dark:text-white-100 shadow-lg ${colorTab(
                       checkSections(course, lessonsSubmitted, section, user?.uid, cohort)
                         .isSectionCompleted,
                       checkSections(course, lessonsSubmitted, section, user?.uid, cohort).currentSection
