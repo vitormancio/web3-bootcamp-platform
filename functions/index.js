@@ -38,13 +38,23 @@ exports.onCohortSignup = functions.firestore
 
     for (let cohortSnapshot of userNewCohorts) {
       const params = emailParams(cohortSnapshot)
+      let emailTitle
       //todo essas funções deveriam ser enfileiradas num pubsub para evitar falhas
+      if (params.cohort.name === 'ETERN@S') {
+        emailTitle = 'on_cohort_signup_eternal'
+      }
+      else {
+        emailTitle = 'on_cohort_signup.js'
+      }
+
       await Promise.all([
-        sendEmail('on_cohort_signup.js', params.cohort.email_content.subject, user.email, params),
+        sendEmail(emailTitle, params.cohort.email_content.subject, user.email, params),
         addDiscordRole(user?.discord?.id, params.cohort.discord_role),
       ])
     }
   })
+
+  
 
 exports.onDiscordConnect = functions.firestore
   .document('users/{userId}')
