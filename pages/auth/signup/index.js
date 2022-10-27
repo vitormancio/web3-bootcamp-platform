@@ -9,7 +9,7 @@ import Layout from '../../../components/layout'
 import LoginButton from '../../../components/LoginButton'
 
 const actionCodeSettings = {
-  url:'https://localhost:3000/auth/email-confirm-login',
+  url:'http://localhost:3000/auth/email-confirm-login',
   handleCodeInApp:true
 };
 
