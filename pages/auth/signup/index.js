@@ -26,6 +26,13 @@ function signUpPage() {
     sendSignInLinkToEmail(auth, email, actionCodeSettings)
       .then(() => {
         window.localStorage.setItem('emailForSignIn', email);
+        toast.success('Email enviado com sucesso, verifique seu e-mail', {
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
       })
       .catch((error) => { 
         let errorCode;
