@@ -13,6 +13,7 @@ const actionCodeSettings = {
   handleCodeInApp:true
 };
 
+
 function signUpPage() {
   
   const { loginGoogle, loginGithub } = useAuth()
@@ -35,11 +36,17 @@ function signUpPage() {
             });
       })
       .catch((error) => { 
-        let errorCode;
-        let errorMessage;
-        errorCode = error.code;
-        errorMessage = error.message;
-        console.log(errorCode,errorMessage)
+        toast.error(error.code,error.message,{
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
+        
+        
       });
   }
     
@@ -69,19 +76,17 @@ function signUpPage() {
             <div className="w-full rounded bg-white-100 px-6 py-6 shadow-lg dark:bg-black-200 sm:px-6 sm:py-10 md:w-1/2 lg:w-5/12 lg:px-10 xl:w-1/3">
               <form onSubmit={handleSubmit(onSignUpSubmit, onSignUpError)}>
                 <div className="pt-6">
-                  <label
-                    htmlFor="email"
-                    className="text-sm font-medium leading-none text-black-300 dark:text-white-100"
-                  >
-                    {' '}
-                    E-mail{' '}
+                  <label htmlFor="email">
+                    
                   </label>
+                  <p className='text-sm'>Informe seu e-mail para enviarmos o link de acesso à plataforma.</p>
+                  <p className='font-bold text-xs'>⚠️ Não esqueça de verificar a caixa de spam.</p>
                   <input
                     id="email"
                     aria-labelledby="email"
                     type="email"
                     className="mt-2 w-full rounded border bg-gray-200 py-3 pl-3 text-xs font-medium leading-none text-gray-800 placeholder-gray-800"
-                    placeholder="ex: silva@gmail.com"
+                    placeholder="Digite aqui seu e-mail"
                     {...register('email', {
                       required: 'Por favor, insira seu e-mail',
                       message: 'E-mail invalido',

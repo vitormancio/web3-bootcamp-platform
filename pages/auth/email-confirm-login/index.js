@@ -82,15 +82,14 @@ useEffect(() => {
                     htmlFor="email"
                     className="text-sm font-medium leading-none text-black-300 dark:text-white-100"
                   >
-                    {' '}
-                    E-mail{' '}
+                    <p className='text-sm'>Informe seu e-mail para confirmarmos o login:</p>
                   </label>
                   <input
                     id="email"
                     aria-labelledby="email"
                     type="email"
                     className="mt-2 w-full rounded border bg-gray-200 py-3 pl-3 text-xs font-medium leading-none text-gray-800 placeholder-gray-800"
-                    placeholder="ex: silva@gmail.com"
+                    placeholder="Digite aqui seu e-mail "
                     {...register('email', {
                       required: 'Por favor, insira seu e-mail',
                       message: 'E-mail invalido',
