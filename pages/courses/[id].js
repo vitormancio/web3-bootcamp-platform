@@ -103,8 +103,9 @@ function Course({ course, currentDate }) {
 
   const under30dCohortStartDate = () => !undefinedCohortStartDate()
 
-  const userIsRegisteredAndCohortIsFuture = () =>
-    userIsRegisteredInCurrentCohort() && undefinedCohortStartDate()
+  const userIsRegisteredAndCohortIsFuture = () => 
+  userIsRegisteredInCurrentCohort() && 
+  undefinedCohortStartDate()
 
   const userIsNotRegisteredAndCohortIsOpen = () => {
     if (!cohort) return
@@ -194,7 +195,7 @@ function Course({ course, currentDate }) {
             <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
               {course?.description /*.substring(0, 100) + '...'*/}
             </p>
-          </div>
+        </div>
             <div className='h-full lg:mx-0 mx-auto'>
               <Image 
               src={course?.image_url}               
@@ -223,35 +224,31 @@ function Course({ course, currentDate }) {
 
             {userIsRegisteredAndCohortIsFuture() && (
               <div className="mb-4 flex flex-col items-center justify-center rounded-lg bg-gradient-to-r from-cyan-900 to-teal-500 p-2 lg:items-center ">
-                <div className="flex flex-col items-center justify-center">
-                  <Link href={'https://discord.web3dev.com.br/'}>
-                    <a id="discord-logo-link" target="_blank">
-                      <Image src={'/assets/img/discord_icon.svg'} width={128} height={128} />
-                    </a>
-                  </Link>
-                  <p className="mt-0 mb-0 text-center text-2xl text-white-100">
-                    Inscrição feita! <br />A data de lançamento será anunciada no nosso{' '}
-                    <Link href={'https://discord.web3dev.com.br/'}>
-                      <a
-                        id="discord-text-link"
-                        target="_blank"
-                        className="text-decoration-none text-white-100"
-                      >
-                        Discord
-                      </a>
-                    </Link>
-                    .
+                <div className="flex flex-col items-center justify-center mb-6">
+
+                    <Image src={'/assets/img/discord_icon.svg'} width={128} height={128} />
+
+                  <div className='mt-0 text-center text-xl text-white-100'>
+
+                  <p className='text-2xl'>
+                    Inscrição feita!           
                   </p>
-                  <br />
-                  <Link href={'https://discord.web3dev.com.br/'}>
+
+                  <p>
+                    A data de lançamento será anunciada no nosso Discord 🚀
+                  </p>
+
+                  </div>                
+                                    
                     <a
                       id="discord-button-link"
+                      href='https://discord.web3dev.com.br/'
                       target="_blank"
-                      className="text-decoration-none rounded-lg bg-violet-600 p-1 px-2 text-white-100 hover:no-underline"
+                      className="text-decoration-none rounded-lg bg-indigo-500 p-3 text-white-100 hover:no-underline font-bold"
                     >
-                      <p>Aproveita para já entrar lá!</p>
+                      Entrar no Discord
                     </a>
-                  </Link>
+                
                 </div>
               </div>
             )}
